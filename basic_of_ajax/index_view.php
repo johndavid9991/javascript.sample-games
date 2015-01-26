@@ -18,7 +18,7 @@
 				//		3. Function to execute after request and data is successfully sent
 				//			- This function is considered as a callback and it has one parameter - 
 				//			  that will grab the response of the server
-				//		4. The datatype of data server response after request
+				//		4. The datatype of server response after request
 				$.post(form.attr("action"), form_data, function(login_data)
 				{
 					//if login is successful
