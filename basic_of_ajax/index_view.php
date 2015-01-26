@@ -14,7 +14,7 @@
 				//send data using jQuery post function $.post(), read http://api.jquery.com/jquery.post/
 				//$.post handles the ajax submission and it has the following parameters:
 				//		1. URL to which the request is sent, 
-				//      2. Data to be sent
+				//      	2. Data to be sent
 				//		3. Function to execute after request and data is successfully sent
 				//			- This function is considered as a callback and it has one parameter - 
 				//			  that will grab the response of the server
