@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript"></script>
+	<script type="text/javascript">
+	//$(document).ready(function(){
+		//chaining 
+		function person()
+		{
+			this.name = "Rose";
+			this.distance_travelled = 0;
+
+			this.initialize = function(player_name){
+				this.name = player_name;
+			}
+
+			this.say_name = function(){ //alert name,
+				alert(this.name);
+			}
+
+			this.say_something = function(message){ //pass message and alert it,
+				alert(message+" "+this.name);
+			}
+
+			this.walk = function(){ //alert that user is walking increase distance by 
+				this.distance_travelled += 3;
+				alert(this.name+ " walked, distance increased by 3 and now "+this.distance_travelled+" steps away");
+				return this;
+			}
+
+			this.run = function(){ //alert that user is walking increase distance by 
+				this.distance_travelled += 10;
+				alert(this.name+ " run, distance increased by 10 and now "+this.distance_travelled+" steps away");
+				return this;
+			}
+
+			this.crawl = function(){ //alert that user is walking increase distance by 
+				this.distance_travelled += 1;
+				alert(this.name+ " crawled, distance increased by 1 and now "+this.distance_travelled+" steps away");
+				return this;
+			}
+		}
+
+		rose = new person();
+		rose.walk().run().crawl()
+	//});
+	</script>
+</head>
+<body>
+</body>
+</html>
