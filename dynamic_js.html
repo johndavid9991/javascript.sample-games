@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+
+		function rand(max, min){
+			if(max == null && min == null) {
+				max = 9
+				return Math.floor(Math.random()*max) + 1
+			}
+			else
+				return Math.floor(Math.random() * (max - min + 1)) + min		
+		}
+
+		p1 = []
+		p1[0] = "var x = "+rand()
+		p1[1] = "x = x + "+rand()
+		p1[2] = "console.log(x)"
+
+		p2 = []
+		p2[0] = "var x = "+rand()
+		p2[1] = "var z = "+rand()
+		p2[2] = "var y = x-z"
+		p2[3] = "console.log(y+"+rand()+")"
+
+		p3 = []
+		p3[0] = "var x = ["+rand()+","+rand()+","+rand()+","+rand()+","+rand()+"]"
+		p3[1] = "var y = x["+rand(2,4)+"] - x["+rand(0,1)+"]"
+		p3[2] = "console.log(y)";
+
+		p3 = []
+		p3[0] = "var x = ["+rand()+","+rand()+","+rand()+","+rand()+","+rand()+"]"
+		p3[1] = "var y = x["+rand(2,4)+"] - x["+rand(0,1)+"]"
+		p3[2] = "console.log(y)";
+
+		p4 = []
+		p4[0] = "x = ["+rand()+","+rand()+","+rand()+","+rand()+","+rand()+"]"
+		p4[1] = "for(var i=0; i<x.length; i=i+2)"
+		p4[2] = "{"
+		p4[3] = "  x[i] = x[i] + i"
+		p4[4] = "}"
+		p4[5] = "console.log(x)"
+		
+		problem_string = "";
+		line_break = "\n"
+
+		for(ctr = 0; ctr < p1.length; ctr++)
+		{
+			problem_string = problem_string + p1[ctr] + line_break
+		}
+
+		document.writeln(problem_string);
+		console.log(eval(problem_string));
+
+		// for(ctr1 = 0; ctr1 < problems.length; ctr1++)
+		// {
+		//	console.log(problems[ctr1]);
+			// for(ctr2 = 0; ctr2 < problems[ctr1].length; ctr2++)
+			// {
+			// 	eval(problems[ctr1][ctr2])
+			// }
+		// }
+
+	</script>
+</head>
+<body>
+</body>
+</html>

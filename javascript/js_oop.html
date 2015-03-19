@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var number = 10
+
+		var numbers = [1,2,3,4]
+
+		console.log(add(2,4))
+
+		function add(first_number, second_number){
+			if(number > 1){
+				console.log(numbers)
+			}
+			else {
+				return first_number + second_number
+			}
+		}
+
+		var user = {}
+
+		console.log(user)
+
+		user = {
+			name: "Mark",
+			age: 24,
+			walk: function(){
+				console.log("walking...");
+			}
+		}
+
+		console.log(user)
+		console.log(user.age)
+		console.log(user.name)
+
+		user.walk();
+
+		//JavaScript Class / OOP
+		function another_user(){
+			this.name = "Mark" //public $name = "Mark"; //php
+			this.age = 24
+
+			this.walk = function(){
+				console.log("walking...")
+			}
+		}
+
+		mark = new another_user();
+		console.log(mark)
+		console.log(mark.name)
+		console.log(mark.age)
+		console.log(mark.walk())
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

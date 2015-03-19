@@ -1,0 +1,27 @@
+* {
+	font-family: verdana;
+}
+body {
+
+}
+
+#tiles {
+	margin: 0px auto;
+	margin-top: 100px;
+	max-width: 650px;
+}
+
+#tiles li {
+	display: inline-block;
+	width: 150px;
+	height: 160px;
+	border: 1px solid red;
+	list-style: none;
+	margin-left: 5px;
+}
+
+#tiles li img {
+	width: 150px;
+	height: 160px;
+	display: none;
+}

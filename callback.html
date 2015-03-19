@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		names = ['George', 'Mike', 'Joe', 'Ninja'];
+
+		var randomName = function() {
+			return names[Math.floor(Math.random()*4)]
+		}
+
+		var say = function(x) {
+		  console.log('Say ', x);
+		}
+
+		var yell = function(x) {
+		  console.log('Yell ', x);
+		}
+
+		var eat = function(x) {
+		  console.log('Eat ', x);
+		}
+
+		var roll = function(x) {
+		  console.log ('Roll ', x);
+		}
+
+		function random_function(a, x, y, z, f) {
+		  	// code here to randomly run one of x, y, z, or f using the result of a.
+		  	random_number = Math.floor(Math.random()*4) + 1;
+
+		  	if(random_number == 1)
+		  		x(a)
+
+		  	if(random_number == 2)
+		  		y(a)
+
+		  	if(random_number == 3)
+		  		z(a)
+
+		  	if(random_number == 4)
+		  		f(a)
+		}
+
+		random_function(randomName(), say, yell, eat, roll);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

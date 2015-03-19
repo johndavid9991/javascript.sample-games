@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="jquery.min.js"></script>
+	<script src="game.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			game = new memory_game();
+
+			$("#tiles").on("click", "li", function(){
+				tile_address = $(this).attr("data-tile_address")
+				
+				if(game.tiles[tile_address].is_open == false){
+					open_tile =	game.open_tile(tile_address)
+					$(this).find("img").show()
+						
+					if(open_tile.tile_to_hide != null)
+						$("#tiles").find("[data-tile_address='"+open_tile.tile_to_hide+"']").find("img").hide();
+				}	
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul id="tiles">
+	</ul>
+</body>
+</html>

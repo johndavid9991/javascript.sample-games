@@ -7,11 +7,16 @@
 	<script type="text/javascript">
 	//$(document).ready(function(){
 		//chaining 
+		// class Person { //php
+
+		// }
+
 		function person()
 		{
 			this.name = "Rose";
 			this.distance_travelled = 0;
 
+			//setter
 			this.initialize = function(player_name){
 				this.name = player_name;
 			}
@@ -43,7 +48,7 @@
 			}
 		}
 
-		rose = new person();
+		rose = new person(); //instance
 		rose.walk().run().crawl()
 	//});
 	</script>
