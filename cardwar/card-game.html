@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Card Game</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="game.js"></script>
+<script>
+		$(document).ready(function(){
+			card = new CardWar();
+
+			$("#play").click(function(){
+				card.gameloop();
+
+				$("#player_a").attr("src", card.player_a_img);
+				$("#player_b").attr("src", card.player_b_img);
+
+				if(card.winner_message != null && confirm(card.winner_message))
+					document.location.reload(true);
+			});	
+
+		});
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+
+<header>
+  <h1>Let's play War!</h1>
+  <p>First one to 10 points wins the game.</p>
+</header>
+
+<div id="scores">
+<div id="playerScore">
+<h2>Your Score</h2>
+<p id="player_score">0</p>
+</div>
+<div id="dealerScore">
+<h2>Dealer Score</h2>
+<p id="dealer_score">0</p>
+</div>
+</div><!-- end scores -->
+
+<div id="play">
+<a href="#" id="play-btn">PLAY</a>
+</div>
+
+<div id="cards">
+<div id="player-card">
+<h2>Your Card</h2>
+<p><img id="player_a" src="card-images/red_joker.png" width="500" height="726" alt=""/></p>
+</div>
+<div id="dealer-card">
+<h2>Dealer card</h2>
+<p><img id="player_b" src="card-images/black_joker.png" width="500" height="726" alt=""/></p>
+</div>
+</div><!-- end cards -->
+
+<div id="message">
+<h2></h2>
+</div><!-- end message -->
+
+</div><!-- end wrapper -->
+</body>
+</html>

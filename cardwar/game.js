@@ -8,8 +8,8 @@ function CardWar()
 
 	//set card details
 	this.initialize = function(){
-		cards = ["2","3","4","5","6","7","8","9","10","jack","queen","king", "ace"];
-		symbols = ["clubs","diamonds","hearts","spades"];
+		cards = ["2","3","4","5","6","7","8","9","10","J","Q","K", "A"];
+		symbols = ["C","D","H","S"];
 	}
 
 	//execute the game
@@ -28,9 +28,23 @@ function CardWar()
 
 		//check if there is a winner
 		if(this.player_a_score >= winner_score)
-			this.winner_message = "Player A Won!";
+			this.winner_message = "You Won";
 		if(this.player_b_score >= winner_score)
-			this.winner_message = "Player B Won!";
+			this.winner_message = "Dealer Won";
+		
+		//Display who won
+		result = (player_a_win())? "You won" : "You lost";
+		//var point = (playerCard > dealerCard)? 1 : 1;
+
+		//message winner
+		var message = document.getElementById("message");
+		message.innerHTML = "<h2>"+result+"</h2>";
+
+		var message = document.getElementById("player_score");
+		message.innerHTML = this.player_a_score;
+
+		var message = document.getElementById("dealer_score");
+		message.innerHTML = this.player_b_score;
 	}
 
 	//get card details
@@ -43,7 +57,7 @@ function CardWar()
 			"card_rank": card_index,
 			"symbol": symbols[symbol_index],
 			"symbol_rank": symbol_index,
-			"card_img": "cards/"+cards[card_index]+"_of_"+symbols[symbol_index]+".png"
+			"card_img": "card-images/"+symbols[symbol_index]+cards[card_index]+".png"
 		}
 	}
 
@@ -63,6 +77,5 @@ function CardWar()
 		else
 			return false;
 	}
-
 	this.initialize();
 }
