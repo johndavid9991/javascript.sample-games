@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="game.js"></script>
+	<script>
+		$(document).ready(function(){
+			card = new CardWar();
+
+			$("#play").click(function(){
+				card.gameloop();
+
+				$("#player_a").attr("src", card.player_a_img);
+				$("#player_b").attr("src", card.player_b_img);
+
+				console.log(card);
+
+				if(card.winner_message != null)
+					alert(card.winner_message);
+			});	
+		});
+	</script>
+	<style>
+		#play{ cursor: pointer; display: block; margin-bottom: 10px;}
+		img { width: 10%; height: 10%; }
+	</style>
+</head>
+<body>
+	<button id="play">PLAY</button>
+	<img id="player_a" src="" alt="">
+	<img id="player_b" src="" alt="">
+</body>
+</html>
