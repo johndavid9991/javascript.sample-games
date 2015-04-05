@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function send_something_via_ajax(callback){
+            $.post('sample.php', function(output){ 
+                callback(output);
+                return output;
+            })
+            return null;
+        }
+
+        send_something_via_ajax(function(result){
+            console.log(result);
+        });
+        send_something_via_ajax(function(result){
+            $('h1').append(result);
+        });
+        send_something_via_ajax(function(result){
+            $('div').fadeOut('slow');
+            $('body').append('third method call success!');
+        });
+
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h1></h1>
+    </div>
+</body>
+</html>

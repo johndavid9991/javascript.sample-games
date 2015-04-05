@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://codingdojo.boomyeah.com:8080/students/chapter/2580/12145 -->
+<html lang="en" class=""><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>POST, GET, &amp; SESSION | The Express Framework (with Socket.io) | CS 340 - Jay's lean MEAN coding machine | Coding Dojo Courses</title>
+	<link rel="stylesheet" href="http://codingdojo.boomyeah.com:8080/assets/css/student-modules.css">
+	<link rel="stylesheet" href="http://codingdojo.boomyeah.com:8080/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="http://codingdojo.boomyeah.com:8080/assets/css/global.css">
+	<link rel="stylesheet" href="http://codingdojo.boomyeah.com:8080/assets/css/vendor/fancybox/jquery.fancybox.css">
+	<link rel="stylesheet" href="http://codingdojo.boomyeah.com:8080/assets/css/vendor/nanoscroller.css">
+	<link rel="stylesheet" type="text/css" href="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/monokai-soda.css" media="all">
+	<script type="text/javascript" src="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/rainbow-custom.min.js"></script>
+	<script src="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/jquery-1.11.2.min.js"></script>
+	<script src="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/bootstrap.min.js"></script>
+	<script src="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/jquery.fancybox.pack.js"></script>
+	<script src="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/jquery.nanoscroller.min.js"></script>
+	<script src="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/chapter.js"></script>
+<style type="text/css">.fancybox-margin{margin-right:15px;}</style><style type="text/css"></style></head>
+<body cz-shortcut-listen="true">
+	<input type="checkbox" id="activate_menu_checkbox" class="hidden">
+	<div id="menu_button">
+		<label for="activate_menu_checkbox" class="glyphicon glyphicon-menu-hamburger"></label>
+		<a href="javascript:void(0);" class="button_text">
+			<div class="track_button">Back to Tract</div>
+		</a>
+		<label label="" for="activate_menu_checkbox" class="glyphicon menu_indicator"></label>
+	</div>
+	<div id="sidebar" class="nano has-scrollbar" style="height: 100px;">
+		<ul id="chapter_list" class="nano-content" tabindex="0" style="right: -15px;">
+
+			<li>
+				<a class="chapter_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2579">
+					<h3>
+						<span>Building servers with NodeJS</span>
+					</h3>
+					<div class="progress_container"><span class="chapter_item_progress">100%</span></div>				</a>
+
+				<ul class="tab_list" id="module_list_2579">
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12124">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Overview</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12119">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Installation</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12122">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>NPM</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12120">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Node Module basics</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12123">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>FS and HTTP module basics</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12121">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Server</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12132">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>To Do I</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12126">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>MISC</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="quiz  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12127">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Quiz (basic)</h4>
+								<div class="progress_container"><span class="tab_progress">0%</span></div>							</span>
+						</a>
+					</li>
+
+					<li class="quiz  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12128">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Quiz (intermediate)</h4>
+								<div class="progress_container"><span class="tab_progress">0%</span></div>							</span>
+						</a>
+					</li>
+
+					<li class="to_do  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12125">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>To Do (basic)</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12224">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Cars and cats</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12129">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Math Module</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12130">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Content module</h4>
+															</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="active">
+				<a class="chapter_title" href="javascript:void(0);">
+					<h3>
+						<span>The Express Framework (with Socket.io)</span>
+					</h3>
+					<div class="progress_container"><span class="chapter_item_progress">23%</span></div>				</a>
+
+				<ul class="tab_list" id="module_list_2580">
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12214">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Overview</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12142">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Hello Express</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  completed_tab">
+						<a class="tab_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12219">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Views</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text current " style="width: 62px;">
+						<a class="tab_title" href="javascript:void(0);" style="width: 187px; margin-top: 0px;">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>POST, GET, &amp; SESSION</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Break</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Socket.io</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Using sockets</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Demo - Chatoom</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Express I</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Sockets I</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Sockets II</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Sockets III</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Sockets Advanced</h4>
+															</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a class="chapter_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2584">
+					<h3>
+						<span>MongoDB - Your first NoSQL database</span>
+					</h3>
+					<div class="progress_container"><span class="chapter_item_progress">0%</span></div>				</a>
+
+				<ul class="tab_list" id="module_list_2584">
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Intro To MongoDB</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Installing - Windows</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Installing - Mac</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Basics</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Working with documents</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Operators</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>To Do</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="quiz  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>MongoDB - Basic</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="quiz  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>MongoDB - intermediate</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>MongoDB exercise</h4>
+															</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a class="chapter_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2585">
+					<h3>
+						<span>Integrating Mongoose</span>
+					</h3>
+					<div class="progress_container"><span class="chapter_item_progress">0%</span></div>				</a>
+
+				<ul class="tab_list" id="module_list_2585">
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Getting Started</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>More Mongoose</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Advanced Topics</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Associations (Optional/Advanced)</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="quiz  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Basic Mongoose quiz</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Basic</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Intermediate</h4>
+															</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a class="chapter_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2582">
+					<h3>
+						<span>Intro to Angular</span>
+					</h3>
+					<div class="progress_container"><span class="chapter_item_progress">0%</span></div>				</a>
+
+				<ul class="tab_list" id="module_list_2582">
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Intro</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>How To</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Directives/data binding</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Modules</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Controllers/$scope</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>factories</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Routes</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Filters</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>$scope (adv)</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="quiz  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Quiz</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>To Do (basic)</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Intermediate</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Task Management</h4>
+															</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a class="chapter_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2662">
+					<h3>
+						<span>FULL MEAN</span>
+					</h3>
+					<div class="progress_container"><span class="chapter_item_progress">0%</span></div>				</a>
+
+				<ul class="tab_list" id="module_list_2662">
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Overview</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Getting Started</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>More Client</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Server</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>API Request</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Controller</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Recap</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Model + DB</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Next Steps</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="to_do  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>FULL MEAN</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Orders &amp; Customers</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Mini MEAN Store</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Belt Exam Review</h4>
+															</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a class="chapter_title" href="http://codingdojo.boomyeah.com:8080/students/chapter/2581">
+					<h3>
+						<span>Advanced NodeJS/Express topics (deployment)</span>
+					</h3>
+					<div class="progress_container"><span class="chapter_item_progress">0%</span></div>				</a>
+
+				<ul class="tab_list" id="module_list_2581">
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Deploying to Heroku</h4>
+															</span>
+						</a>
+					</li>
+
+					<li class="text  ">
+						<a class="tab_title" href="javascript:void(0);">
+							<div class="tab_label"><span class="tab_icon"></span></div>
+							<span class="tab_details">
+								<h4>Deploying to Linux Server</h4>
+															</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+		<div id="lower_sidebar_content">
+			<div id="extra_content">
+				<span class="glyphicon glyphicon-gift"></span>
+			</div>
+		</div>
+	<div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 923px; transform: translate(0px, 0px);"></div></div></div>
+	<nav id="main_navigation">
+		<div id="navbar">
+			<div id="search_form"></div>
+			<a href="http://codingdojo.boomyeah.com:8080/students" id="home_link"><img src="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/coding_dojo_white.png" alt="Platform Logo"></a>
+			<div id="profile_block">
+				<img src="./POST, GET, & SESSION   The Express Framework (with Socket.io)   CS 340 - Jay's lean MEAN coding machine   Coding Dojo Courses_files/picture" alt="100000145107255" class="profile_image">
+				<div id="user_name_block">
+					<div>
+						<span class="decor_text">Hello, </span> <span class="user_name">John David A</span>
+					</div>
+				</div>
+				<a href="http://codingdojo.boomyeah.com:8080/main/log_off" id="logout_button" class="btn btn-primary">Log Out</a>
+			</div>
+		</div>
+	</nav>
+	<section id="main_content">
+		<div id="content_navigation">
+			<ul id="breadcrumbs" class="left_align">
+				<li>CS 340 - Jay's lean MEAN coding machine</li>
+				<li id="chapter_title">The Express Framework (with Socket.io)</li>
+				<li class="module_title">POST, GET, &amp; SESSION</li>
+			</ul>
+			<div id="return_button" class="right_align">
+				<a href="http://codingdojo.boomyeah.com:8080/students">
+					<span class="glyphicon glyphicon-th-large"></span>Home
+				</a>
+			</div>
+		</div>
+		<div id="section_content">
+			<div class="content_block">
+				<div id="module_container">
+					<div class="module_content module_content_block">
+						<div class="module_description">
+							<h2>Routing</h2><p>
+ <strong style="background-color: initial;">In Express we will assign all of our routing rules using the syntax:</strong></p>
+<pre data-language="javascript" class="rainbow">app.<span class="function call">HTTP_VERB</span>(<span class="string">'URL'</span>, <span class="storage function">function</span> (req, res){});  <span class="comment">// HTTP_VERB is either 'get' or 'post' etc...</span>
+</pre><p>
+ So let's say we were working in a 
+ <strong>RESTful</strong> environment and we wanted to make the route for creating a<strong> new user</strong>.  The setup would look like this:</p>
+<pre data-language="javascript" class="rainbow"><span class="comment">// root route</span>
+app.<span class="function call">get</span>(<span class="string">'/'</span>, <span class="storage function">function</span> (req, res){
+  res.<span class="function call">render</span>(<span class="string">'index'</span>, {title: <span class="string">"my Express project"</span>});
+});
+<span class="comment">// route to process new user form data:</span>
+app.<span class="function call">post</span>(<span class="string">'/users'</span>, <span class="storage function">function</span> (req, res){
+  <span class="comment">//code to add user to db goes here!</span>
+})
+</pre><p>
+ Easy! &nbsp;Remember that all of these routes must go above where we tell the server to listen.</p><h3>Redirecting</h3><p>
+ After we do anything with the handles a
+ <strong> POST request</strong>, provided there are no errors, <strong>we need to redirect.&nbsp;</strong>  Redirecting is easy!  Let's revisit the routes we made above and have the code redirect the user back to the <strong>root route:</strong></p>
+<pre data-language="javascript" class="rainbow"><span class="comment">// root route</span>
+app.<span class="function call">get</span>(<span class="string">'/'</span>, <span class="storage function">function</span> (req, res){
+  res.<span class="function call">render</span>(<span class="string">'index'</span>, {title: <span class="string">"my Express project"</span>});
+});
+<span class="comment">// route to process new user form data:</span>
+app.<span class="function call">post</span>(<span class="string">'/users'</span>, <span class="storage function">function</span> (req, res){
+  <span class="comment">// code to add user to db goes here!</span>
+  <span class="comment">// redirect the user back to the root route. </span>
+  <span class="comment">// All we do is specify the URL we want to go to:</span>
+  res.<span class="function call">redirect</span>(<span class="string">'/'</span>);
+})
+</pre><p>
+ And that's redirecting! &nbsp;Simple huh?</p><h3>POST data</h3><p>
+ In order to be able to access POST data we need to be able to pull it out of the request object. Unfortunately in an effort to be as lightweight and flexible as possible, Express doesn't have a good way to handle post-data inherently. So how do you think we are going to get our data from the request object? A node module! This one is called body-parser.&nbsp;</p><p>
+ After installing body-parser (you should be very familiar with npm install by now), require it and tell the express server to use it like so:</p>
+<pre data-language="javascript" class="rainbow"><span class="comment">// require body-parser</span>
+<span class="keyword">var</span> bodyParser <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">'body-parser'</span>);
+<span class="comment">// use it!</span>
+app.<span class="function call">use</span>(bodyParser.<span class="function call">urlencoded</span>());
+</pre><p>
+ Let's say in an<strong>&nbsp;index.ejs </strong>view&nbsp;file we had a form that looked like this:</p>
+<pre data-language="html" class="rainbow"><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">form</span></span> <span class="support attribute">action</span><span class="support operator">=</span><span class="string quote">'</span><span class="string value">/users</span><span class="string quote">'</span> <span class="support attribute">method</span><span class="support operator">=</span><span class="string quote">'</span><span class="string value">post</span><span class="string quote">'</span><span class="support tag close">&gt;</span>
+    Name: <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">'</span><span class="string value">text</span><span class="string quote">'</span> <span class="support attribute">name</span><span class="support operator">=</span><span class="string quote">'</span><span class="string value">name</span><span class="string quote">'</span><span class="support tag close">&gt;</span>
+    Email: <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">'</span><span class="string value">text</span><span class="string quote">'</span> <span class="support attribute">name</span><span class="support operator">=</span><span class="string quote">'</span><span class="string value">email</span><span class="string quote">'</span><span class="support tag close">&gt;</span>
+    <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">'</span><span class="string value">submit</span><span class="string quote">'</span> <span class="support attribute">value</span><span class="support operator">=</span><span class="string quote">'</span><span class="string value">create user</span><span class="string quote">'</span><span class="support tag close">&gt;</span>
+<span class="support tag"><span class="support tag">&lt;</span><span class="support tag special">/</span><span class="support tag-name">form</span></span><span class="support tag close">&gt;</span>
+</pre><p>
+ We're in the 
+ <strong>MEAN</strong> stack, right? &nbsp;Javascript runs the universe now. &nbsp;What do we expect our form data to be? &nbsp; You guessed it: <strong>JSON</strong>. &nbsp;Here's how we get form data:</p>
+<pre data-language="javascript" class="rainbow"><span class="comment">// route to process new user form data:</span>
+app.<span class="function call">post</span>(<span class="string">'/users'</span>, <span class="storage function">function</span> (req, res){
+    console.<span class="support method">log</span>(<span class="string">"POST DATA \n\n"</span>, req.body)
+    <span class="comment">//code to add user to db goes here!</span>
+    <span class="comment">// redirect the user back to the root route.  </span>
+    res.<span class="function call">redirect</span>(<span class="string">'/'</span>)
+});
+</pre><p>
+ Now we will go to the
+ <strong> terminal window our server is running on </strong>and check it out...</p><p>
+ <img src="">There you have it! &nbsp;<strong style="background-color: initial;">req.body is a JSON object that contains the data from our form.</strong> &nbsp;Not so bad.</p><h3>Data from URL (GET data)</h3><p>
+ Let's say we wanted to show the information of a specific user. &nbsp;The 
+ <strong>RESTful route </strong>for this would be:</p>
+<pre>users/:id    //where :id is the id of a particular user.  HTTP method is GET
+</pre><p>
+ Setting this up in Express is easy; in our <strong>server.js</strong><strong>&nbsp;</strong>file we would just <strong>add the route</strong>:</p>
+<pre data-language="javascript" class="rainbow">app.<span class="function call">get</span>(<span class="string">"/users/:id"</span>, <span class="storage function">function</span> (req, res){
+    console.<span class="support method">log</span>(<span class="string">"The user id requested is:"</span>, req.params.id);
+    <span class="comment">// just to illustrate that req.params is usable here:</span>
+    res.<span class="function call">send</span>(<span class="string">"You requested the user with id: "</span> <span class="keyword operator">+</span> req.params.id);
+    <span class="comment">// code to get user from db goes here, etc...</span>
+});
+</pre><p>Note: This illustrates <strong>accessing data from the url.</strong> If you want to test this out, <strong>add a button on the view that sends a request to "/users/1"</strong> (trying to access the page with information about the user with id = 1). Note that a post request to "/users" and a get request to "/users" are two completely different routes because a route is made up of the <strong>verb + the url.</strong></p><p>
+ Any data you wish to pass via the url must be indicated by a 
+ <strong>':'</strong>. &nbsp;It will then be available in the <strong>req.params object</strong>.</p><h3>Session data</h3><p><strong>DON'T USE IT.</strong></p><p><strong></strong>Session data is <strong>almost never used</strong> in the MEAN stack. We are teaching it briefly here to give you guys some exposure to it but you will notice that there is no need to use session. If you do need to use it you have to install and require the express-session module first. &nbsp;</p><p>After installing go to your server.js file and require it like so:</p><pre data-language="javascript" class="rainbow"><span class="comment">// new code:</span>
+<span class="keyword">var</span> session <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">'express-session'</span>);
+<span class="comment">// original code:</span>
+<span class="keyword">var</span> app <span class="keyword operator">=</span> <span class="function call">express</span>();
+<span class="comment">// more new code:</span>
+app.<span class="function call">use</span>(<span class="function call">session</span>({secret: <span class="string">'codingdojorocks'</span>}));  <span class="comment">// string for encryption</span>
+</pre><p>
+ now, within any of your routes, there will be an object called <strong>req.session</strong>.  It is an object and you can assign properties to it like normal:</p>
+<pre data-language="javascript" class="rainbow">app.<span class="function call">post</span>(<span class="string">'/users'</span>, <span class="storage function">function</span> (req, res){
+    <span class="comment">// set the name property of session.  </span>
+    req.session.name <span class="keyword operator">=</span> req.body.name;
+    console.<span class="support method">log</span>(req.session.name);
+    <span class="comment">//code to add user to db goes here!</span>
+    <span class="comment">// redirect the user back to the root route. </span>
+    res.<span class="function call">redirect</span>(<span class="string">'/'</span>);
+});
+</pre><p>
+ And now 
+ <strong>req.session.name</strong> will be available to any other route afterwards.</p>						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content_footer">
+			<div class="prev_button">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<a href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12219">Prev</a>
+			</div>
+
+			<a href="javascript:void(0);" class="back_button">Back to Track</a>
+			
+			<div class="next_button">
+
+				<form action="http://codingdojo.boomyeah.com:8080/students/complete_module" method="post" class="complete_module_form"><input type="hidden" name="module_id" value="12145"></form>				
+				<a href="http://codingdojo.boomyeah.com:8080/students/chapter/2580/12220" class="next_to_complete_module">Next</a>
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</div>
+		</div>
+	</section>
+
+</body></html>

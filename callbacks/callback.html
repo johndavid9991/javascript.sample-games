@@ -6,24 +6,24 @@
 	<script type="text/javascript">
 		names = ['George', 'Mike', 'Joe', 'Ninja'];
 
-		var randomName = function() {
+		var random_name = function() {
 			return names[Math.floor(Math.random()*4)]
 		}
 
-		var say = function(x) {
-		  console.log('Say ', x);
+		var say = function(name) {
+		  console.log('Say ', name);
 		}
 
-		var yell = function(x) {
-		  console.log('Yell ', x);
+		var yell = function(name) {
+		  console.log('Yell ', name);
 		}
 
-		var eat = function(x) {
-		  console.log('Eat ', x);
+		var eat = function(name) {
+		  console.log('Eat ', name);
 		}
 
-		var roll = function(x) {
-		  console.log ('Roll ', x);
+		var roll = function(name) {
+		  console.log ('Roll ', name);
 		}
 
 		function random_function(a, x, y, z, f) {
@@ -43,10 +43,9 @@
 		  		f(a)
 		}
 
-		random_function(randomName(), say, yell, eat, roll);
+		random_function(random_name(), say, yell, eat, roll);
 	</script>
 </head>
 <body>
-	
 </body>
 </html>
