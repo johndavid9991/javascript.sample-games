@@ -32,6 +32,18 @@
 
 	add(1,2,display_result)
 
+
+	function get_messages(callback){
+		callback("message", 2)
+		console.log("hello")
+	}
+
+	get_messages(function(data,data2){
+	    setTimeout(function(){ 
+	       console.log(data + data2)
+	    }, 10000)
+	})
+
 	</script>
 </head>
 <body>
